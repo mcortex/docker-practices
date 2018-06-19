@@ -1,18 +1,17 @@
 version: "3"
 services:
   web:
-    # replace username/repo:tag with your name and image details
-    image: mcortez/get-started:part2
+    image: mcortez/get-started:part2 # Imagen buildeada en directorio test1 y pusheada al repo
     deploy:
       replicas: 7
       resources:
         limits:
-          cpus: "0.1"
+          cpus: "0.1" # Se le asigna 10% de CPU, de todos los cores.
           memory: 50M
       restart_policy:
         condition: on-failure
     ports:
-      - "4000:80"
+      - "4000:80" # La aplicacion mapea el puerto 4000 real al puerto 80 del servicio
     networks:
       - webnet
 networks:
